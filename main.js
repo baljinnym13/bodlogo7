@@ -74,3 +74,21 @@ function tomvsgeerehlvvleh(sentense) {
 }
 let result3 = tomvsgeerehlvvleh("the quick brown fox output");
 console.log(result3);
+// bodlogo 5
+//Ugugdsun temdegt muriin array iig tus buriin temdegt muriig urvuugaar butsaah shine array butsaadag function bich. input: ['hello', 'world', 'javascript', 'array'] output: ['olleh', 'dlrow', 'tpircsavaj', 'yarra']
+function reversetext(text) {
+  // text.split().reverse().jion();
+  let n = text.split("").reverse().jion("");
+  console.log("t", n);
+}
+
+let textarr = ["hello", "world", "javascript"];
+function reversearray(inputarr) {
+  let r = []
+  for (let i = 0; i < inputarr.length; i++) {
+    console.log(reversetext(inputarr[i]));
+    r.push(reversetext(inputarr[i]))
+  }
+  return r;
+}
+let ra = 
