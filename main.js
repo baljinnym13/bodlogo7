@@ -74,21 +74,157 @@ function tomvsgeerehlvvleh(sentense) {
 }
 let result3 = tomvsgeerehlvvleh("the quick brown fox output");
 console.log(result3);
+console.log("=============");
 // bodlogo 5
 //Ugugdsun temdegt muriin array iig tus buriin temdegt muriig urvuugaar butsaah shine array butsaadag function bich. input: ['hello', 'world', 'javascript', 'array'] output: ['olleh', 'dlrow', 'tpircsavaj', 'yarra']
+// function reversetext(text) {
+//   // text.split().reverse().jion();
+//   let n = text.split("").reverse().jion("");
+//   console.log("t", n);
+// }
+
+// let textarr = ["hello", "world", "javascript"];
+// function reversearray(inputarr) {
+//   let r = [];
+//   for (let i = 0; i < inputarr.length; i++) {
+//     console.log(reversetext(inputarr[i]));
+//     r.push(reversetext(inputarr[i]));
+//   }
+//   return r;
+// }
+
+// let ra = reversearray(textarr);
+// console.log(textarr);
+// console.log(ra);
+
 function reversetext(text) {
-  // text.split().reverse().jion();
-  let n = text.split("").reverse().jion("");
-  console.log("t", n);
+  let reversed = text.split("").reverse().join("");
+  return reversed;
 }
 
 let textarr = ["hello", "world", "javascript"];
+
 function reversearray(inputarr) {
-  let r = []
+  let r = [];
   for (let i = 0; i < inputarr.length; i++) {
-    console.log(reversetext(inputarr[i]));
-    r.push(reversetext(inputarr[i]))
+    let reversedText = reversetext(inputarr[i]);
+    console.log(reversedText);
+    r.push(reversedText);
   }
   return r;
 }
-let ra = 
+
+let ra = reversearray(textarr);
+console.log(textarr);
+console.log(ra);
+
+// bodlog 6
+// Ugugdsun text dotor tuhain oruulsan keyword(prompt ashiglah) ni bn uu gedgiin shalgah function bich. text = 'animal world' input: animal output: true, input: cat ouput: false
+let word = prompt("haih utgaa oruul");
+let findarray = ["animal", "world", "dog"];
+function findkeyword(arr, word) {
+  let find = arr.includes(word);
+  return find;
+}
+let result4 = findkeyword(findarray, word);
+console.log("hailt:", result4);
+console.log("==========");
+// bodlogo 7
+const data = [
+  {
+    productName: "Bakery",
+    unitPrice: 5000,
+    amount: 200,
+    totalPrice: 500000,
+    casherId: 1,
+    date: "2022-11-01",
+  },
+
+  {
+    productName: "Chocolate",
+    unitPrice: 3000,
+    amount: 18,
+    totalPrice: 54000,
+    casherId: 1,
+    date: "2022-11-01",
+  },
+
+  {
+    productName: "cake",
+    unitPrice: 2000,
+    amount: 10,
+    totalPrice: 20000,
+    casherId: 1,
+    date: "2022-11-01",
+  },
+
+  {
+    productName: "cola",
+    unitPrice: 1100,
+    amount: 10,
+    totalPrice: 11000,
+    casherId: 1,
+    date: "2022-11-01",
+  },
+
+  {
+    productName: "candy",
+    unitPrice: 500,
+    amount: 15,
+    totalPrice: 7500,
+    casherId: 1,
+    date: "2022-11-01",
+  },
+];
+// Дараах даалгаварыг хийж гүйцэтгэнэ үү.
+// 1. Нийт борлуулалтын дүнг тооцоолох.
+// 2. Нийт борлуулагдсан барааны тоог тооцоолох.
+// 3. Хамгийн их зарагдсан 5 барааны жагсаалт /боруулалтын үнийн дүнгээр/ харуулах.
+// 4. Хамгийн бага зарагдсан 5 барааны жагсаалт /боруулалтын тоо хэмжээгэр/ харуулах.
+// 1
+let allprice = 0;
+function caltotalprise(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    allprice += arr[i].totalPrice;
+  }
+  return allprice;
+}
+console.log("Нийт борлуулалтын дүн:", caltotalprise(data));
+console.log("==========");
+// 2
+let allamount = 0;
+function caltotalamount(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    allamount += arr[i].amount;
+  }
+  return allamount;
+}
+console.log("Нийт борлуулагдсан бараа:", caltotalamount(data));
+console.log("==========");
+// 3. Хамгийн их зарагдсан барааны жагсаалт харуулах
+function getTopProductsByRevenue(data, count = 5) {
+  // totalPrice-ээр бараануудыг эрэмбэлэх
+  const sortedByRevenue = data.slice().sort((a, b) => b.amount - a.amount);
+  // Эхний "count" ширхэг элементийг авах
+  const topProducts = sortedByRevenue.slice(0, count);
+  return topProducts[0];
+}
+
+// 4. Хамгийн бага зарагдсан барааны жагсаалт харуулах
+function getBottomProductsBySales(data, count = 5) {
+  // amount-аар бараануудыг эрэмбэлэх
+  const sortedBySales = data.slice().sort((a, b) => a.amount - b.amount);
+  // Эхний "count" ширхэг элементийг авах
+  const bottomProducts = sortedBySales.slice(0, count);
+  return bottomProducts[0];
+}
+
+console.log(
+  "Хамгийн их зарагдсан барааны жагсаалт: ",
+  getTopProductsByRevenue(data)
+);
+console.log("==========");
+console.log(
+  "Хамгийн бага зарагдсан барааны жагсаалт: ",
+  getBottomProductsBySales(data)
+);
